@@ -16,4 +16,4 @@ Interactive 3D automotive mechanics learning lab built with Three.js.
 - Responsive desktop/mobile UI
 
 ## GitHub Pages
-Publish this repository from the `main` branch using GitHub Pages.
+Live site: https://saaeiddev.github.io/Saeid-Engine/
