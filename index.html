@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#090b10" />
+  <meta name="description" content="Saeid Engine — an interactive 3D automotive mechanics learning experience." />
+  <title>Saeid Engine — Interactive Car Mechanics</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar glass">
+      <a class="brand" href="#" aria-label="Saeid Engine home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><b>Saeid</b> Engine</span>
+      </a>
+      <nav class="top-actions" aria-label="Viewer controls">
+        <button class="icon-btn" id="resetView" title="Reset camera" aria-label="Reset camera">↺</button>
+        <button class="pill active" id="xrayBtn" aria-pressed="true"><span class="dot"></span>X-Ray</button>
+        <button class="pill" id="explodeBtn" aria-pressed="false">Exploded View</button>
+        <button class="icon-btn" id="autoRotateBtn" title="Auto rotate" aria-label="Toggle auto rotate">⟳</button>
+      </nav>
+    </header>
+
+    <aside class="sidebar glass" aria-label="Vehicle systems">
+      <div class="eyebrow">LEARN THE MACHINE</div>
+      <h1>Automotive<br><span>Mechanics in 3D.</span></h1>
+      <p class="lead">Rotate the car, zoom in and click any highlighted component to see how it works.</p>
+
+      <div class="system-list" id="systemList">
+        <button class="system active" data-part="engine"><span class="system-icon">⚙</span><span><b>Engine</b><small>Combustion & power</small></span><em>01</em></button>
+        <button class="system" data-part="transmission"><span class="system-icon">⇄</span><span><b>Transmission</b><small>Torque & gearing</small></span><em>02</em></button>
+        <button class="system" data-part="brakes"><span class="system-icon">◉</span><span><b>Braking System</b><small>Control & stopping</small></span><em>03</em></button>
+        <button class="system" data-part="suspension"><span class="system-icon">⌁</span><span><b>Suspension</b><small>Grip & comfort</small></span><em>04</em></button>
+        <button class="system" data-part="steering"><span class="system-icon">⌖</span><span><b>Steering</b><small>Direction & geometry</small></span><em>05</em></button>
+        <button class="system" data-part="exhaust"><span class="system-icon">≈</span><span><b>Exhaust</b><small>Flow & emissions</small></span><em>06</em></button>
+      </div>
+
+      <div class="hint"><kbd>Drag</kbd> rotate <span>•</span> <kbd>Scroll</kbd> zoom <span>•</span> <kbd>Click</kbd> inspect</div>
+    </aside>
+
+    <main class="viewer" id="viewer" aria-label="Interactive 3D car viewer">
+      <canvas id="scene"></canvas>
+      <div class="ambient-grid" aria-hidden="true"></div>
+      <div id="hotspots" class="hotspots" aria-hidden="true"></div>
+      <div class="model-label"><span class="live-dot"></span> INTERACTIVE VEHICLE MODEL</div>
+      <div class="loading" id="loading"><div class="loader-ring"></div><p>Building mechanical model…</p></div>
+    </main>
+
+    <aside class="info-card glass" id="infoCard" aria-live="polite">
+      <button class="close-card" id="closeCard" aria-label="Close details">×</button>
+      <div class="info-kicker" id="infoKicker">POWERTRAIN / 01</div>
+      <h2 id="infoTitle">V8 Engine</h2>
+      <p id="infoText">The engine converts the chemical energy of fuel into rotational force. Pistons move inside cylinders, turning the crankshaft and sending torque toward the transmission.</p>
+      <div class="spec-grid" id="specGrid">
+        <div><small>LAYOUT</small><strong>V8</strong></div>
+        <div><small>CYCLE</small><strong>4-Stroke</strong></div>
+        <div><small>COOLING</small><strong>Liquid</strong></div>
+        <div><small>OUTPUT</small><strong>Torque</strong></div>
+      </div>
+      <button class="focus-btn" id="focusBtn">Focus component <span>→</span></button>
+    </aside>
+
+    <footer class="footer-note">SAEID ENGINE <span>•</span> INTERACTIVE AUTOMOTIVE LEARNING LAB</footer>
+  </div>
+
+  <noscript>This interactive experience requires JavaScript.</noscript>
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
+  </script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
