@@ -2,56 +2,51 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=1536, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#050b12">
 <title>SAEID ENGINE — Interactive Automotive Learning</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;background:#050b12;width:100%;min-height:100%;overflow-x:hidden;font-family:Arial,Helvetica,sans-serif}.stage{position:relative;width:1536px;height:1024px;margin:0 auto;background:#050b12 center/cover no-repeat;overflow:hidden}.hit{position:absolute;border:0;background:transparent;cursor:pointer;border-radius:50%;z-index:4}.hit:focus-visible{outline:3px solid #27aaff;outline-offset:3px}.system-hit{position:absolute;z-index:4;border:0;background:transparent;cursor:pointer;border-radius:14px}.system-hit:hover,.system-hit:focus-visible{outline:2px solid rgba(43,174,255,.9);outline-offset:-2px;background:rgba(27,157,255,.07)}.toast{position:absolute;z-index:10;left:50%;top:70%;transform:translate(-50%,20px);padding:13px 22px;border:1px solid #2b88c3;border-radius:12px;background:rgba(3,16,27,.92);color:white;font-size:16px;opacity:0;pointer-events:none;transition:.22s;box-shadow:0 10px 35px #0008}.toast.show{opacity:1;transform:translate(-50%,0)}.start{position:absolute;z-index:4;left:34px;top:311px;width:190px;height:47px;border:0;background:transparent;cursor:pointer;border-radius:30px}.panel{position:absolute;z-index:5;right:20px;top:98px;width:285px;height:594px;border-radius:18px;pointer-events:none}.pulse{position:absolute;width:26px;height:26px;border:2px solid #3ab6ff;border-radius:50%;box-shadow:0 0 0 7px #129ff833,0 0 22px #109fff;animation:pulse 1.7s infinite;opacity:0;z-index:3}.pulse.on{opacity:1}@keyframes pulse{50%{box-shadow:0 0 0 13px #129ff811,0 0 34px #109fff}}@media(max-width:1536px){body{overflow:hidden}.stage{transform-origin:top left;transform:scale(calc(100vw / 1536));margin:0;height:1024px}html,body{height:calc(100vw * .6666667)}}
+*{box-sizing:border-box}html,body{margin:0;background:#050b12;color:#fff;font-family:Arial,Helvetica,sans-serif;width:100%;min-height:100%;overflow-x:hidden}.wrap{width:100%;display:flex;justify-content:center;background:#050b12}.stage{position:relative;width:min(1536px,100vw);aspect-ratio:3/2;overflow:hidden;background:#07111c}.reference{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}.hit,.system-hit,.start{position:absolute;z-index:4;border:0;background:transparent;cursor:pointer}.hit{border-radius:50%}.system-hit{border-radius:14px}.hit:focus-visible,.system-hit:focus-visible,.start:focus-visible{outline:2px solid #2cb2ff;outline-offset:-2px}.system-hit:hover{background:rgba(35,161,255,.08);box-shadow:inset 0 0 0 2px rgba(43,174,255,.85)}.toast{position:absolute;z-index:8;left:50%;bottom:25%;transform:translate(-50%,16px);padding:12px 18px;background:rgba(4,17,28,.94);border:1px solid #2f8ec7;border-radius:12px;font-size:15px;opacity:0;transition:.2s;pointer-events:none;white-space:nowrap;box-shadow:0 10px 30px #0008}.toast.show{opacity:1;transform:translate(-50%,0)}.pulse{position:absolute;width:2.1%;aspect-ratio:1;border-radius:50%;border:2px solid #39b8ff;box-shadow:0 0 0 7px #119ef633,0 0 24px #119ef6;opacity:0;z-index:3;pointer-events:none}.pulse.on{opacity:1;animation:p 1s ease-out}@keyframes p{100%{box-shadow:0 0 0 18px #119ef600,0 0 30px #119ef644}}
+@media(max-width:700px){.toast{font-size:12px;padding:9px 12px;bottom:18%}}
 </style>
 </head>
 <body>
-<div class="stage" id="stage" aria-label="SAEID ENGINE interactive automotive learning interface">
-  <button class="start" id="start" aria-label="Start Exploring"></button>
-  <div class="panel" aria-hidden="true"></div>
+<div class="wrap"><main class="stage" id="stage" aria-label="SAEID ENGINE interactive automotive learning interface">
+<img id="reference" class="reference" alt="SAEID ENGINE interactive automotive mechanics interface">
+<button class="start" id="start" style="left:2.2%;top:30.3%;width:12.4%;height:4.7%" aria-label="Start Exploring"></button>
+<button class="hit" data-name="Engine (V8)" style="left:33.2%;top:37.4%;width:2.2%;height:3.2%" aria-label="Engine V8"></button>
+<button class="hit" data-name="Engine internals" style="left:27.1%;top:43.6%;width:2.2%;height:3.2%" aria-label="Engine internals"></button>
+<button class="hit" data-name="Interior" style="left:49.4%;top:29.3%;width:2.2%;height:3.2%" aria-label="Interior"></button>
+<button class="hit" data-name="Steering" style="left:60.8%;top:33.3%;width:2.2%;height:3.2%" aria-label="Steering"></button>
+<button class="hit" data-name="Drivetrain" style="left:57.5%;top:42.9%;width:2.2%;height:3.2%" aria-label="Drivetrain"></button>
+<button class="hit" data-name="Braking System" style="left:49.4%;top:58.0%;width:2.2%;height:3.2%" aria-label="Braking System"></button>
+<button class="hit" data-name="Exhaust System" style="left:59.6%;top:52.9%;width:2.2%;height:3.2%" aria-label="Exhaust System"></button>
+<button class="hit" data-name="Rear Suspension" style="left:74.2%;top:46.8%;width:2.2%;height:3.2%" aria-label="Rear Suspension"></button>
 
-  <!-- interactive hotspots aligned to the reference artwork -->
-  <button class="hit" data-name="Engine (V8)" style="left:510px;top:383px;width:32px;height:32px" aria-label="Engine V8"></button>
-  <button class="hit" data-name="Engine internals" style="left:416px;top:446px;width:32px;height:32px" aria-label="Engine internals"></button>
-  <button class="hit" data-name="Interior" style="left:758px;top:299px;width:32px;height:32px" aria-label="Interior"></button>
-  <button class="hit" data-name="Steering" style="left:934px;top:341px;width:32px;height:32px" aria-label="Steering"></button>
-  <button class="hit" data-name="Drivetrain" style="left:883px;top:439px;width:32px;height:32px" aria-label="Drivetrain"></button>
-  <button class="hit" data-name="Braking System" style="left:758px;top:594px;width:32px;height:32px" aria-label="Braking System"></button>
-  <button class="hit" data-name="Exhaust System" style="left:916px;top:542px;width:32px;height:32px" aria-label="Exhaust System"></button>
-  <button class="hit" data-name="Rear Suspension" style="left:1141px;top:480px;width:32px;height:32px" aria-label="Rear Suspension"></button>
-
-  <!-- bottom component rail -->
-  <button class="system-hit" data-name="Engine" style="left:59px;top:786px;width:120px;height:113px" aria-label="Engine"></button>
-  <button class="system-hit" data-name="Transmission" style="left:187px;top:786px;width:115px;height:113px" aria-label="Transmission"></button>
-  <button class="system-hit" data-name="Suspension" style="left:310px;top:786px;width:117px;height:113px" aria-label="Suspension"></button>
-  <button class="system-hit" data-name="Braking System" style="left:436px;top:786px;width:118px;height:113px" aria-label="Braking System"></button>
-  <button class="system-hit" data-name="Steering" style="left:563px;top:786px;width:117px;height:113px" aria-label="Steering"></button>
-  <button class="system-hit" data-name="Electrical System" style="left:689px;top:786px;width:116px;height:113px" aria-label="Electrical System"></button>
-  <button class="system-hit" data-name="Cooling System" style="left:815px;top:786px;width:117px;height:113px" aria-label="Cooling System"></button>
-  <button class="system-hit" data-name="Exhaust System" style="left:941px;top:786px;width:117px;height:113px" aria-label="Exhaust System"></button>
-  <button class="system-hit" data-name="Fuel System" style="left:1067px;top:786px;width:117px;height:113px" aria-label="Fuel System"></button>
-  <button class="system-hit" data-name="Interior" style="left:1193px;top:786px;width:116px;height:113px" aria-label="Interior"></button>
-  <button class="system-hit" data-name="Body Structure" style="left:1319px;top:786px;width:142px;height:113px" aria-label="Body Structure"></button>
-
-  <div class="toast" id="toast"></div>
-  <div class="pulse" id="pulse"></div>
-</div>
-<script src="./assets/r4-01.js"></script>
-<script src="./assets/r4-02.js"></script>
-<script src="./assets/r4-03.js"></script>
-<script src="./assets/r4-04.js"></script>
+<button class="system-hit" data-name="Engine" style="left:3.9%;top:76.7%;width:7.9%;height:11.2%"></button>
+<button class="system-hit" data-name="Transmission" style="left:12.2%;top:76.7%;width:7.5%;height:11.2%"></button>
+<button class="system-hit" data-name="Suspension" style="left:20.2%;top:76.7%;width:7.6%;height:11.2%"></button>
+<button class="system-hit" data-name="Braking System" style="left:28.4%;top:76.7%;width:7.7%;height:11.2%"></button>
+<button class="system-hit" data-name="Steering" style="left:36.6%;top:76.7%;width:7.6%;height:11.2%"></button>
+<button class="system-hit" data-name="Electrical System" style="left:44.9%;top:76.7%;width:7.5%;height:11.2%"></button>
+<button class="system-hit" data-name="Cooling System" style="left:53.1%;top:76.7%;width:7.6%;height:11.2%"></button>
+<button class="system-hit" data-name="Exhaust System" style="left:61.3%;top:76.7%;width:7.6%;height:11.2%"></button>
+<button class="system-hit" data-name="Fuel System" style="left:69.5%;top:76.7%;width:7.6%;height:11.2%"></button>
+<button class="system-hit" data-name="Interior" style="left:77.7%;top:76.7%;width:7.6%;height:11.2%"></button>
+<button class="system-hit" data-name="Body Structure" style="left:85.9%;top:76.7%;width:9.3%;height:11.2%"></button>
+<div id="toast" class="toast"></div><div id="pulse" class="pulse"></div>
+</main></div>
+<script src="./assets/reference-single.js"></script>
 <script>
+const ref=document.getElementById('reference');
 const stage=document.getElementById('stage');
-stage.style.backgroundImage=`url(data:image/webp;base64,${window.__REF4})`;
-const toast=document.getElementById('toast'),pulse=document.getElementById('pulse');
+const toast=document.getElementById('toast');
+const pulse=document.getElementById('pulse');
+if(window.SAEID_REF){ref.src='data:image/webp;base64,'+window.SAEID_REF}else{stage.style.background='linear-gradient(135deg,#07111c,#0b2133)';toast.textContent='Reference artwork failed to load';toast.classList.add('show')}
 let timer;
-function say(name,el){toast.textContent=name+' — click to explore';toast.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>toast.classList.remove('show'),1300);if(el&&el.classList.contains('hit')){pulse.style.left=(parseFloat(el.style.left)+3)+'px';pulse.style.top=(parseFloat(el.style.top)+3)+'px';pulse.classList.add('on');setTimeout(()=>pulse.classList.remove('on'),1200)}}
-document.querySelectorAll('[data-name]').forEach(el=>el.addEventListener('click',()=>say(el.dataset.name,el)));
-document.getElementById('start').addEventListener('click',()=>say('Choose any highlighted mechanical system'));
+function showName(name,el){toast.textContent=name+' — click to explore';toast.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>toast.classList.remove('show'),1400);if(el&&el.classList.contains('hit')){pulse.style.left=(parseFloat(el.style.left)+.05)+'%';pulse.style.top=(parseFloat(el.style.top)+.05)+'%';pulse.classList.remove('on');void pulse.offsetWidth;pulse.classList.add('on')}}
+document.querySelectorAll('[data-name]').forEach(el=>el.addEventListener('click',()=>showName(el.dataset.name,el)));
+document.getElementById('start').addEventListener('click',()=>showName('Choose any highlighted mechanical system'));
 </script>
 </body>
 </html>
